@@ -1,0 +1,21 @@
+zb = ZabbixBase('zbx-prod')
+zb.login('bin.yuan', '123456')
+zhg = HostGroup(zb)
+get_paras = {
+    "output": "extend",
+    "filter": {
+        "name": ['yuanbin']
+    }
+}
+paras_update = {
+    "groupid": 16,
+    "name": 'test-007'
+}
+params = [64]
+create_paras = {
+    'name': 'yuanbin'
+}
+print zhg.create(**create_paras)
+print zhg.get(**get_paras)
+print zhg.update(**paras_update)
+print zhg.delete(*params)
